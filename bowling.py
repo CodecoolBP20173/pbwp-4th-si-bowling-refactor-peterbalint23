@@ -22,10 +22,7 @@ def score(game):
         if not in_first_half or game[rolls].lower() == 'x':
             frame += 1
      
-        if in_first_half is True:
-            in_first_half = False
-        else:
-            in_first_half = True
+        in_first_half = not in_first_half
          
     return result
 
