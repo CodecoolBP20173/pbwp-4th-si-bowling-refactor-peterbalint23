@@ -1,7 +1,19 @@
+def get_value(char):
+    if char in "123456789":
+        return int(char)
+    elif char.lower() == 'x' or char == '/':
+        return 10
+    elif char == '-':
+        return 0
+    else:
+        raise ValueError()
+
+
 def score(game):
     result = 0
     frame = 1
     in_first_half = True
+
     for rolls in range(len(game)):
         if game[rolls] == '/':
             result += 10 - last
@@ -21,18 +33,7 @@ def score(game):
         last = get_value(game[rolls])
         if not in_first_half or game[rolls].lower() == 'x':
             frame += 1
-     
+
         in_first_half = not in_first_half
-         
+
     return result
-
-
-def get_value(char):
-    if char in "123456789":
-        return int(char)
-    elif char.lower() == 'x' or char == '/':
-        return 10
-    elif char == '-':
-        return 0
-    else:
-        raise ValueError()
